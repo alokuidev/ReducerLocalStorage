@@ -13,7 +13,9 @@ function Todoprovider({ children }) {
     } 
     setTodoList((prev)=>[...prev,newTodo])
    };
-  const updateTodo = (id) => { alert(id)};
+  const updateTodo = (id, todos) => { 
+        alert(id,todos)
+  };
   
   //deleted value
   const deleteTodo = (id) => {

@@ -18,7 +18,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 500px;
 }
 
 h1 {
@@ -83,6 +83,23 @@ ul {
   border-radius: 5px;
   cursor: pointer;
   padding: 5px 10px;
+}
+.save-btn {
+  background-color: blueviolet;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.edit-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-left: 10px;
 }
 
 .remove-btn:hover {

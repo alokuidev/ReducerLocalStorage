@@ -13,11 +13,13 @@ function App() {
                 <input type="checkbox"/>
                 <span className="task-text">Learn Redux</span>
                 <button className="remove-btn">X</button>
+                <button className="edit-btn">E</button>
             </li>
             <li className="todo-item">
                 <input type="checkbox"/>
                 <span className="task-text">Complete React Project</span>
                 <button className="remove-btn">X</button>
+                <button className="edit-btn">E</button>
             </li>
         </ul>
     </div>

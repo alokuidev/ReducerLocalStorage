@@ -14,7 +14,11 @@ function Todoprovider({ children }) {
     setTodoList((prev)=>[...prev,newTodo])
    };
   const updateTodo = (id) => { alert(id)};
-  const deleteTodo = (id) => {alert(id)};
+  
+  //deleted value
+  const deleteTodo = (id) => {
+    setTodoList((prev) => prev.filter((elem) => elem.id !== id ));
+  };
   const toggleComplete = (id) => {alert(id)};
   return (
     <ToDoContext.Provider value={{ todoList, setTodoList, addTodo,updateTodo, deleteTodo,toggleComplete }}>

@@ -16,7 +16,13 @@ function TodoApp() {
 
   //add Value to todoList
   const addTask = () =>{
-    addTodo(taskInputRef.current.value)
+    addTodo(taskInputRef.current.value);
+    taskInputRef.current.value = '';
+  }
+
+  //to Delete 
+  const deleteTask = (id) =>{
+    deleteTodo(id);
   }
   return (
     <>
@@ -32,7 +38,7 @@ function TodoApp() {
               <li className="todo-item" key={elem.id}>
                 <input type="checkbox" />
                 <span className="task-text">{elem.todo}</span>
-                <button className="remove-btn">X</button>
+                <button className="remove-btn" onClick={() => deleteTask(elem.id)}>X</button>
                 <button className="edit-btn" onClick={() => updateTodo(elem.id)}>E</button>
               </li>
             );

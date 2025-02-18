@@ -1,7 +1,10 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import ToDoContext from "../context/todoContext";
 
 function TodoApp() {
+  
+  const [editingId, setEditingId] = useState(null);  
+  const [fieldVal, setFieldVal] = useState('')  
   const {
     todoList,
     setTodoList,
@@ -20,6 +23,11 @@ function TodoApp() {
     taskInputRef.current.value = '';
   }
 
+  // converting text into textfiled
+  const updateTodoField = (id,val) =>{
+    setEditingId(id);
+    setFieldVal(val);
+  }
   //to Delete 
   const deleteTask = (id) =>{
     deleteTodo(id);
@@ -35,11 +43,15 @@ function TodoApp() {
         <ul id="taskList">
           {todoList.map((elem) => {
             return (
-              <li className="todo-item" key={elem.id}>
+              <li className="todo-item"  key={elem.id}>
                 <input type="checkbox" />
-                <span className="task-text">{elem.todo}</span>
+                <span className="task-text">{editingId === elem.id ? <input type="text" onChange={(e) => setFieldVal(e.target.value)} value={fieldVal}/> : elem.todo}</span>
                 <button className="remove-btn" onClick={() => deleteTask(elem.id)}>X</button>
-                <button className="edit-btn" onClick={() => updateTodo(elem.id)}>E</button>
+                {editingId !== elem.id ?
+                    <button className="edit-btn" onClick={() => updateTodoField(elem.id, elem.todo)}>E</button>
+                    :
+                    <button className="save-btn" onClick={updateTodo(elem.id)}>S</button>
+                }
               </li>
             );
           })}

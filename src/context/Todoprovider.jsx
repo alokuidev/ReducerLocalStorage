@@ -13,15 +13,19 @@ function Todoprovider({ children }) {
     } 
     setTodoList((prev)=>[...prev,newTodo])
    };
-  const updateTodo = (id, todos) => { 
-        alert(id,todos)
-  };
+   const updateTodo = (id, todos) => { 
+    setTodoList((prev) => 
+      prev.map((elem) => 
+        elem.id === id ? { ...elem, todo: todos } : elem // Add `: elem` to return unchanged items
+      )
+    );
+};
   
   //deleted value
   const deleteTodo = (id) => {
     setTodoList((prev) => prev.filter((elem) => elem.id !== id ));
   };
-  const toggleComplete = (id) => {alert(id)};
+  const toggleComplete = (id) => {};
   return (
     <ToDoContext.Provider value={{ todoList, setTodoList, addTodo,updateTodo, deleteTodo,toggleComplete }}>
       {children}

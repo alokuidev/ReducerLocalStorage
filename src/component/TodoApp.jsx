@@ -29,6 +29,10 @@ function TodoApp() {
     setFieldVal(val);
   }
   //to Delete 
+  const updateChangedTodo = (id) =>{
+    updateTodo(id,fieldVal);
+    setEditingId(null);
+  }
   const deleteTask = (id) =>{
     deleteTodo(id);
   }
@@ -50,7 +54,7 @@ function TodoApp() {
                 {editingId !== elem.id ?
                     <button className="edit-btn" onClick={() => updateTodoField(elem.id, elem.todo)}>E</button>
                     :
-                    <button className="save-btn" onClick={updateTodo(elem.id)}>S</button>
+                    <button className="save-btn" onClick={() => updateChangedTodo(elem.id)}>S</button>
                 }
               </li>
             );
